@@ -108,6 +108,21 @@
       color: #fff;
     }
 
+    .products {
+      margin-top: 2rem;
+      animation: fadeIn 2s ease-out 1.5s both;
+    }
+    .products a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      transition: color 0.3s;
+    }
+    .products a:hover {
+      color: #E8A020;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -124,6 +139,9 @@
     <p class="tagline">More coming soon</p>
     <div class="contact">
       <a href="mailto:info@kemblinck.nl">info@kemblinck.nl</a>
+    </div>
+    <div class="products">
+      <a href="https://tweehuizen.com">tweehuizen.com</a>
     </div>
   </div>
 </body>
