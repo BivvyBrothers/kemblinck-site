@@ -3,146 +3,314 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KemblincK</title>
-  <meta name="description" content="KemblincK - More coming soon">
+  <title>KemblincK, digitale producten met karakter</title>
+  <meta name="description" content="KemblincK ontwerpt digitale producten voor dagelijkse problemen. Eerste product: TweeHuizen, een co-ouderschap app.">
+  <meta name="author" content="Patrick Kemble">
+  <meta name="theme-color" content="#0D360E">
   <link rel="canonical" href="https://kemblinck.nl/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KemblincK">
+  <meta property="og:title" content="KemblincK, digitale producten met karakter">
+  <meta property="og:description" content="KemblincK ontwerpt digitale producten voor dagelijkse problemen. Eerste product: TweeHuizen.">
+  <meta property="og:url" content="https://kemblinck.nl/">
+  <meta property="og:image" content="https://kemblinck.nl/logo.png?v=3">
+  <meta property="og:locale" content="nl_NL">
+  <meta name="twitter:card" content="summary_large_image">
+
   <script>if(location.hostname==='kemblinck.com'||location.hostname==='www.kemblinck.com')location.replace('https://kemblinck.nl'+location.pathname);</script>
+
   <link rel="icon" type="image/png" href="logo.png?v=3">
+  <link rel="apple-touch-icon" href="logo.png?v=3">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500&display=swap">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "KemblincK",
+    "legalName": "KemblincK",
+    "founder": "Patrick Kemble",
+    "url": "https://kemblinck.nl",
+    "logo": "https://kemblinck.nl/logo.png?v=3",
+    "email": "info@kemblinck.nl",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Esperantoplein 27",
+      "postalCode": "2518 LE",
+      "addressLocality": "'s-Gravenhage",
+      "addressCountry": "NL"
+    },
+    "identifier": [
+      { "@type": "PropertyValue", "propertyID": "KvK", "value": "42043399" }
+    ],
+    "brand": {
+      "@type": "Brand",
+      "name": "TweeHuizen",
+      "url": "https://tweehuizen.com"
+    }
+  }
+  </script>
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400&display=swap');
+    :root {
+      --ink: #0D360E;
+      --accent: #EE8303;
+      --ink-soft: rgba(13, 54, 14, 0.72);
+      --ink-mute: rgba(13, 54, 14, 0.5);
+      --ink-hair: rgba(13, 54, 14, 0.12);
+      --bg: #FBFAF6;
+    }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       min-height: 100vh;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #ffffff;
-      color: #1B5E20;
-      font-family: 'Inter', sans-serif;
-      overflow: hidden;
+      flex-direction: column;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
       position: relative;
+      overflow-x: hidden;
     }
 
-    /* Subtle background watermark pattern */
     body::before {
       content: '';
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      inset: 0;
       background-image: url('logo.png?v=3');
       background-repeat: repeat;
-      background-size: 200px 200px;
-      opacity: 0.04;
+      background-size: 220px 220px;
+      opacity: 0.035;
       pointer-events: none;
       z-index: 0;
     }
 
-    /* Ambient glow */
     .glow {
       position: fixed;
-      width: 600px;
-      height: 600px;
+      width: 620px;
+      height: 620px;
       border-radius: 50%;
-      filter: blur(150px);
-      opacity: 0.12;
+      filter: blur(160px);
+      opacity: 0.14;
       pointer-events: none;
       z-index: 0;
     }
-    .glow-1 {
-      top: -200px;
-      right: -100px;
-      background: #1B5E20;
-    }
-    .glow-2 {
-      bottom: -200px;
-      left: -100px;
-      background: #E8A020;
+    .glow-1 { top: -220px; right: -120px; background: var(--ink); }
+    .glow-2 { bottom: -220px; left: -120px; background: var(--accent); }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1.5rem 2rem;
+      position: relative;
+      z-index: 1;
     }
 
-    .container {
+    .stage {
+      max-width: 640px;
+      width: 100%;
       text-align: center;
-      z-index: 1;
-      position: relative;
-      padding: 2rem;
     }
 
     .logo {
-      width: min(400px, 70vw);
+      width: min(360px, 68vw);
       height: auto;
-      margin-bottom: 3rem;
-      animation: fadeIn 2s ease-out;
-      filter: drop-shadow(0 4px 20px rgba(27, 94, 32, 0.1));
+      margin: 0 auto 2.2rem;
+      display: block;
+      animation: rise 1.2s ease-out both;
+      filter: drop-shadow(0 6px 24px rgba(13, 54, 14, 0.08));
     }
 
     .divider {
-      width: 80px;
+      width: 64px;
       height: 2px;
-      background: linear-gradient(90deg, transparent, #E8A020, transparent);
-      margin: 0 auto 2rem;
-      animation: fadeIn 2s ease-out 0.5s both;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      margin: 0 auto 1.6rem;
+      animation: rise 1.2s ease-out 0.2s both;
     }
 
     .tagline {
       font-family: 'Cinzel', serif;
-      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      font-size: clamp(1.05rem, 2.6vw, 1.45rem);
       font-weight: 400;
-      letter-spacing: 0.35em;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: rgba(27, 94, 32, 0.7);
-      animation: fadeIn 2s ease-out 0.8s both;
+      color: var(--ink-soft);
+      animation: rise 1.2s ease-out 0.35s both;
     }
+
+    .lede {
+      margin-top: 1.2rem;
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      color: var(--ink-soft);
+      max-width: 38ch;
+      margin-left: auto;
+      margin-right: auto;
+      animation: rise 1.2s ease-out 0.5s both;
+    }
+
+    .product {
+      margin-top: 2.8rem;
+      padding: 1.4rem 1.6rem;
+      border: 1px solid var(--ink-hair);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(6px);
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      animation: rise 1.2s ease-out 0.65s both;
+      text-decoration: none;
+      color: inherit;
+    }
+    .product:hover,
+    .product:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(13, 54, 14, 0.08);
+      outline: none;
+    }
+    .product__badge {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .product__body { flex: 1; }
+    .product__title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+    }
+    .product__desc {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      margin-top: 0.2rem;
+    }
+    .product__arrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      color: var(--accent);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .product:hover .product__arrow { transform: translateX(4px); }
 
     .contact {
-      margin-top: 3rem;
-      animation: fadeIn 2s ease-out 1.2s both;
+      margin-top: 2.4rem;
+      animation: rise 1.2s ease-out 0.8s both;
     }
     .contact a {
-      color: #E8A020;
+      color: var(--accent);
       text-decoration: none;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      transition: color 0.3s;
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease, color 0.3s ease;
     }
-    .contact a:hover {
-      color: #1B5E20;
+    .contact a:hover,
+    .contact a:focus-visible {
+      color: var(--ink);
+      border-bottom-color: var(--accent);
+      outline: none;
     }
 
-    .products {
-      margin-top: 2rem;
-      animation: fadeIn 2s ease-out 1.5s both;
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 1.8rem 1.5rem 2.2rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--ink-mute);
+      letter-spacing: 0.04em;
+      animation: rise 1.2s ease-out 1s both;
     }
-    .products a {
-      color: rgba(27, 94, 32, 0.5);
+    footer p { margin: 0.15rem 0; }
+    footer a {
+      color: var(--ink-mute);
       text-decoration: none;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      transition: color 0.3s;
+      transition: color 0.3s ease;
     }
-    .products a:hover {
-      color: #E8A020;
+    footer a:hover, footer a:focus-visible {
+      color: var(--accent);
+      outline: none;
+    }
+    .footer-dot {
+      display: inline-block;
+      margin: 0 0.5rem;
+      color: var(--ink-hair);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+
+    @media (max-width: 420px) {
+      .product { flex-direction: column; text-align: center; gap: 0.6rem; }
+      .product__arrow { display: none; }
     }
   </style>
 </head>
 <body>
-  <div class="glow glow-1"></div>
-  <div class="glow glow-2"></div>
+  <div class="glow glow-1" aria-hidden="true"></div>
+  <div class="glow glow-2" aria-hidden="true"></div>
 
-  <div class="container">
-    <img src="logo.png?v=3" alt="KemblincK" class="logo">
-    <div class="divider"></div>
-    <p class="tagline">More coming soon</p>
-    <div class="contact">
-      <a href="mailto:info@kemblinck.nl">info@kemblinck.nl</a>
+  <main>
+    <div class="stage">
+      <img src="logo.png?v=3" alt="KemblincK" class="logo" width="400" height="400">
+      <div class="divider" aria-hidden="true"></div>
+      <h1 class="tagline">Digitale producten met karakter</h1>
+      <p class="lede">Software voor dagelijkse problemen, gebouwd in Den Haag.</p>
+
+      <a class="product" href="https://tweehuizen.com" aria-label="Bekijk TweeHuizen, co-ouderschap app">
+        <span class="product__badge">Eerste product</span>
+        <div class="product__body">
+          <div class="product__title">TweeHuizen</div>
+          <div class="product__desc">Co-ouderschap app voor gescheiden ouders. Agenda, zorgverdeling, vakantieplanning.</div>
+        </div>
+        <span class="product__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+
+      <div class="contact">
+        <a href="mailto:info@kemblinck.nl">info@kemblinck.nl</a>
+      </div>
     </div>
-    <div class="products">
-      <a href="https://tweehuizen.com">tweehuizen.com</a>
-    </div>
-  </div>
+  </main>
+
+  <footer>
+    <p>
+      KemblincK
+      <span class="footer-dot">&bull;</span>
+      KvK 42043399
+      <span class="footer-dot">&bull;</span>
+      's-Gravenhage, NL
+    </p>
+    <p>&copy; <span id="year">2026</span> KemblincK</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
