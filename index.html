@@ -183,12 +183,20 @@
       outline: none;
     }
     .product__badge {
+      display: block;
       font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+    .product__logo {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
       flex-shrink: 0;
+      filter: drop-shadow(0 4px 12px rgba(13, 54, 14, 0.08));
     }
     .product__body { flex: 1; }
     .product__title {
@@ -284,8 +292,9 @@
       <p class="lede">Software voor dagelijkse problemen.</p>
 
       <a class="product" href="https://tweehuizen.com" aria-label="Bekijk TweeHuizen, co-ouderschap app">
-        <span class="product__badge">Eerste product</span>
+        <img src="tweehuizen-logo.png" alt="" class="product__logo" width="64" height="64">
         <div class="product__body">
+          <span class="product__badge">Eerste product</span>
           <div class="product__title">TweeHuizen</div>
           <div class="product__desc">Co-ouderschap app voor gescheiden ouders. Agenda, zorgverdeling, vakantieplanning.</div>
         </div>
