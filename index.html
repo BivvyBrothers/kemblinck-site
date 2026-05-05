@@ -263,6 +263,34 @@
       color: var(--ink-hair);
     }
 
+    /* Social-iconen rij boven de copyright */
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      margin: 0 0 1rem;
+    }
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: var(--ink-mute);
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+    .footer-social a:hover,
+    .footer-social a:focus-visible {
+      color: var(--accent);
+      background-color: rgba(0, 0, 0, 0.04);
+      outline: none;
+    }
+    .footer-social svg {
+      width: 20px;
+      height: 20px;
+    }
+
     @keyframes rise {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -306,6 +334,20 @@
   </main>
 
   <footer>
+    <nav class="footer-social" aria-label="Volg KemblincK op social media">
+      <a href="https://www.instagram.com/kemblinck" target="_blank" rel="noopener" aria-label="KemblincK op Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      </a>
+      <a href="https://www.facebook.com/share/1awK8HkGwE/" target="_blank" rel="noopener" aria-label="KemblincK op Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+        </svg>
+      </a>
+    </nav>
     <p>
       KemblincK
       <span class="footer-dot">&bull;</span>
