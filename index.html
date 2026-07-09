@@ -192,6 +192,22 @@
     .product:nth-child(1) { animation-delay: 0.65s; }
     .product:nth-child(2) { animation-delay: 0.8s; }
 
+    .product--met-info { flex-direction: column; align-items: stretch; gap: 0; }
+    .product__link { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: inherit; }
+    .product__info {
+      margin-top: 1.05rem; padding-top: 0.95rem;
+      border-top: 1px solid var(--ink-hair);
+      font-size: 0.82rem; line-height: 1.55; color: var(--ink-mute);
+    }
+    .product__info p { margin: 0 0 0.55rem; }
+    .product__info p:last-child { margin-bottom: 0; }
+    .product__info a {
+      color: var(--accent); text-decoration: none;
+      border-bottom: 1px solid transparent; transition: border-color 0.3s ease;
+      white-space: nowrap;
+    }
+    .product__info a:hover, .product__info a:focus-visible { border-bottom-color: var(--accent); outline: none; }
+
     .product-note {
       margin: 1.1rem auto 0;
       max-width: 44ch;
@@ -338,6 +354,7 @@
 
     @media (max-width: 420px) {
       .product { flex-direction: column; text-align: center; gap: 0.6rem; }
+      .product__link { flex-direction: column; text-align: center; gap: 0.6rem; }
       .product__arrow { display: none; }
     }
   </style>
@@ -364,27 +381,25 @@
           <span class="product__arrow" aria-hidden="true">&rarr;</span>
         </a>
 
-        <a class="product" href="https://viswedstrijdapp.nl" aria-label="Bekijk Viswedstrijden, webapp voor wedstrijdvissen">
-          <img src="viswedstrijd-logo.png?v=2" alt="" class="product__logo" width="64" height="64">
-          <div class="product__body">
-            <span class="product__badge">Webapp</span>
-            <div class="product__title">Viswedstrijden</div>
-            <div class="product__desc">Digitale loting, stekkeuze op de dieptekaart en live klassement voor viswedstrijden.</div>
+        <div class="product product--met-info">
+          <a class="product__link" href="https://viswedstrijdapp.nl" aria-label="Bekijk Viswedstrijden, webapp voor wedstrijdvissen">
+            <img src="viswedstrijd-logo.png?v=2" alt="" class="product__logo" width="64" height="64">
+            <div class="product__body">
+              <span class="product__badge">Webapp</span>
+              <div class="product__title">Viswedstrijden</div>
+              <div class="product__desc">Digitale loting, stekkeuze op de dieptekaart en live klassement voor viswedstrijden.</div>
+            </div>
+            <span class="product__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <div class="product__info">
+            <p>Meedoen met een viswedstrijd? Zet de app in één minuut op je telefoon:
+            <a href="https://viswedstrijdapp.nl/instructies.html">bekijk de instructies</a>.</p>
+            <p>Beheer je een viswater of hengelsportvereniging? Ook jullie wedstrijden kunnen
+            een eigen app krijgen: <a href="https://viswedstrijdapp.nl/info.html">bekijk wat de app kan</a>
+            of <a href="mailto:info@kemblinck.nl?subject=Wedstrijd-app%20voor%20ons%20water">neem contact op</a>.</p>
           </div>
-          <span class="product__arrow" aria-hidden="true">&rarr;</span>
-        </a>
+        </div>
       </div>
-
-      <p class="product-note">
-        Meedoen met een viswedstrijd? Zet de app in één minuut op je telefoon:
-        <a href="https://viswedstrijdapp.nl/instructies.html">bekijk de instructies</a>.
-      </p>
-
-      <p class="product-note">
-        Beheer je een viswater of hengelsportvereniging? Ook jullie wedstrijden
-        kunnen een eigen app krijgen.
-        <a href="mailto:info@kemblinck.nl?subject=Wedstrijd-app%20voor%20ons%20water">Neem contact op</a>.
-      </p>
 
       <div class="contact">
         <a href="mailto:info@kemblinck.nl">info@kemblinck.nl</a>
