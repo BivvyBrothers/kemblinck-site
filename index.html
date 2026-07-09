@@ -191,6 +191,24 @@
     }
     .product:nth-child(1) { animation-delay: 0.65s; }
     .product:nth-child(2) { animation-delay: 0.8s; }
+
+    .product-note {
+      margin: 1.1rem auto 0;
+      max-width: 44ch;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: var(--ink-mute);
+      animation: rise 1.2s ease-out 0.9s both;
+    }
+    .product-note a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
+      white-space: nowrap;
+    }
+    .product-note a:hover,
+    .product-note a:focus-visible { border-bottom-color: var(--accent); outline: none; }
     .product:hover,
     .product:focus-visible {
       transform: translateY(-2px);
@@ -356,6 +374,12 @@
           <span class="product__arrow" aria-hidden="true">&rarr;</span>
         </a>
       </div>
+
+      <p class="product-note">
+        Beheer je een viswater of hengelsportvereniging? Ook jullie wedstrijden
+        kunnen een eigen app krijgen.
+        <a href="mailto:info@kemblinck.nl?subject=Wedstrijd-app%20voor%20ons%20water">Neem contact op</a>.
+      </p>
 
       <div class="contact">
         <a href="mailto:info@kemblinck.nl">info@kemblinck.nl</a>
