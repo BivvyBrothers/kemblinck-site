@@ -6,7 +6,8 @@
   <title>KemblincK, digitale producten met karakter</title>
   <meta name="description" content="KemblincK ontwerpt digitale producten voor dagelijkse problemen: TweeHuizen (co-ouderschap app) en Viswedstrijden (wedstrijdvissen webapp).">
   <meta name="author" content="Patrick Kemble">
-  <meta name="theme-color" content="#0D360E">
+  <meta name="theme-color" content="#0D360E" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0F1710" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://kemblinck.nl/">
 
   <meta property="og:type" content="website">
@@ -25,7 +26,8 @@
 
   <link rel="icon" type="image/png" href="favicon-180.png?v=5">
   <link rel="apple-touch-icon" href="favicon-180.png?v=5">
-  <link rel="preload" as="image" href="logo-512.png?v=5" fetchpriority="high">
+  <link rel="preload" as="image" href="logo-512.png?v=5" fetchpriority="high" media="(prefers-color-scheme: light)">
+  <link rel="preload" as="image" href="logo-licht-512.png?v=1" fetchpriority="high" media="(prefers-color-scheme: dark)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500&display=swap">
@@ -38,7 +40,7 @@
     "legalName": "KemblincK",
     "founder": "Patrick Kemble",
     "url": "https://kemblinck.nl",
-    "logo": "https://kemblinck.nl/logo.png?v=4",
+    "logo": "https://kemblinck.nl/logo-512.png?v=5",
     "email": "info@kemblinck.nl",
     "address": {
       "@type": "PostalAddress",
@@ -71,6 +73,25 @@
       --ink-mute: rgba(13, 54, 14, 0.5);
       --ink-hair: rgba(13, 54, 14, 0.12);
       --bg: #FBFAF6;
+      --card: rgba(255, 255, 255, 0.55);
+      --hover-bg: rgba(0, 0, 0, 0.04);
+      --glow-1: #0D360E;
+      --watermark: url('logo-512.png?v=5');
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #E7EFE3;
+        --ink-soft: rgba(231, 239, 227, 0.75);
+        --ink-mute: rgba(231, 239, 227, 0.5);
+        --ink-hair: rgba(231, 239, 227, 0.14);
+        --bg: #0F1710;
+        --card: rgba(255, 255, 255, 0.04);
+        --hover-bg: rgba(255, 255, 255, 0.06);
+        --glow-1: #3E7A40;
+        --watermark: url('logo-licht-512.png?v=1');
+        --watermark-opacity: 0.022;
+      }
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -94,10 +115,10 @@
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url('logo-512.png?v=5');
+      background-image: var(--watermark);
       background-repeat: repeat;
       background-size: 220px 220px;
-      opacity: 0.035;
+      opacity: var(--watermark-opacity, 0.035);
       pointer-events: none;
       z-index: 0;
     }
@@ -112,7 +133,7 @@
       pointer-events: none;
       z-index: 0;
     }
-    .glow-1 { top: -220px; right: -120px; background: var(--ink); }
+    .glow-1 { top: -220px; right: -120px; background: var(--glow-1); }
     .glow-2 { bottom: -220px; left: -120px; background: var(--accent); }
 
     main {
@@ -178,7 +199,7 @@
       padding: 1.4rem 1.6rem;
       border: 1px solid var(--ink-hair);
       border-radius: 14px;
-      background: rgba(255, 255, 255, 0.55);
+      background: var(--card);
       backdrop-filter: blur(6px);
       text-align: left;
       display: flex;
@@ -208,23 +229,6 @@
     }
     .product__info a:hover, .product__info a:focus-visible { border-bottom-color: var(--accent); outline: none; }
 
-    .product-note {
-      margin: 1.1rem auto 0;
-      max-width: 44ch;
-      font-size: 0.82rem;
-      line-height: 1.55;
-      color: var(--ink-mute);
-      animation: rise 1.2s ease-out 0.9s both;
-    }
-    .product-note a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s ease;
-      white-space: nowrap;
-    }
-    .product-note a:hover,
-    .product-note a:focus-visible { border-bottom-color: var(--accent); outline: none; }
     .product:hover,
     .product:focus-visible {
       transform: translateY(-2px);
@@ -335,7 +339,7 @@
     .footer-social a:hover,
     .footer-social a:focus-visible {
       color: var(--accent);
-      background-color: rgba(0, 0, 0, 0.04);
+      background-color: var(--hover-bg);
       outline: none;
     }
     .footer-social svg {
@@ -365,7 +369,10 @@
 
   <main>
     <div class="stage">
-      <img src="logo-512.png?v=5" alt="KemblincK" class="logo" width="512" height="512" fetchpriority="high">
+      <picture>
+        <source srcset="logo-licht-512.png?v=1" media="(prefers-color-scheme: dark)">
+        <img src="logo-512.png?v=5" alt="KemblincK" class="logo" width="512" height="512" fetchpriority="high">
+      </picture>
       <div class="divider" aria-hidden="true"></div>
       <h1 class="tagline">Digitale producten met karakter</h1>
       <p class="lede">Software voor dagelijkse problemen.</p>
@@ -375,8 +382,8 @@
           <img src="tweehuizen-logo.png" alt="" class="product__logo" width="64" height="64">
           <div class="product__body">
             <span class="product__badge">App voor iOS</span>
-            <div class="product__title">TweeHuizen</div>
-            <div class="product__desc">Co-ouderschap app voor gescheiden ouders. Agenda, zorgverdeling, vakantieplanning.</div>
+            <h2 class="product__title">TweeHuizen</h2>
+            <p class="product__desc">Co-ouderschap app voor gescheiden ouders. Agenda, zorgverdeling, vakantieplanning.</p>
           </div>
           <span class="product__arrow" aria-hidden="true">&rarr;</span>
         </a>
@@ -386,8 +393,8 @@
             <img src="viswedstrijd-logo.png?v=2" alt="" class="product__logo" width="64" height="64">
             <div class="product__body">
               <span class="product__badge">Webapp</span>
-              <div class="product__title">Viswedstrijden</div>
-              <div class="product__desc">Digitale loting, stekkeuze op de waterkaart en live klassement voor viswedstrijden.</div>
+              <h2 class="product__title">Viswedstrijden</h2>
+              <p class="product__desc">Digitale loting, stekkeuze op de waterkaart en live klassement voor viswedstrijden.</p>
             </div>
             <span class="product__arrow" aria-hidden="true">&rarr;</span>
           </a>

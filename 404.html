@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagina niet gevonden | KemblincK</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0D360E" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0F1710" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/favicon-180.png?v=5">
+  <link rel="apple-touch-icon" href="/favicon-180.png?v=5">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400&display=swap">
+  <style>
+    :root {
+      --ink: #0D360E;
+      --accent: #EE8303;
+      --ink-soft: rgba(13, 54, 14, 0.72);
+      --ink-mute: rgba(13, 54, 14, 0.5);
+      --bg: #FBFAF6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #E7EFE3;
+        --ink-soft: rgba(231, 239, 227, 0.75);
+        --ink-mute: rgba(231, 239, 227, 0.5);
+        --bg: #0F1710;
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+    .logo { width: min(200px, 50vw); height: auto; margin: 0 auto 2rem; display: block; }
+    .code {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.6rem, 8vw, 4rem);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+    .divider {
+      width: 64px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      margin: 1.2rem auto;
+    }
+    p { color: var(--ink-soft); max-width: 40ch; margin: 0 auto 1.8rem; }
+    a.terug {
+      display: inline-block;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      padding: 0.65rem 1.6rem;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    a.terug:hover, a.terug:focus-visible { background: var(--accent); color: #fff; outline: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <picture>
+      <source srcset="/logo-licht-512.png?v=1" media="(prefers-color-scheme: dark)">
+      <img src="/logo-512.png?v=5" alt="KemblincK" class="logo" width="512" height="512">
+    </picture>
+    <h1 class="code">404</h1>
+    <div class="divider" aria-hidden="true"></div>
+    <p>Deze pagina bestaat niet (meer). Geen zorgen, alles wat KemblincK maakt vind je op de homepagina.</p>
+    <a class="terug" href="/">Naar de homepagina</a>
+  </main>
+</body>
+</html>
