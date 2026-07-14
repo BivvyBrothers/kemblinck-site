@@ -73,8 +73,9 @@
       --ink-soft: rgba(13, 54, 14, 0.72);
       --ink-mute: rgba(13, 54, 14, 0.5);
       --ink-hair: rgba(13, 54, 14, 0.12);
-      --bg: #FBFAF6;
-      --card: rgba(255, 255, 255, 0.55);
+      --bg: #E9EEDA;
+      --bg-verloop: linear-gradient(170deg, #E3EBD1 0%, #EBE9D2 55%, #F0E4C8 100%);
+      --card: rgba(255, 255, 255, 0.6);
       --hover-bg: rgba(0, 0, 0, 0.04);
       --glow-1: #0D360E;
       --watermark: url('logo-512.png?v=5');
@@ -87,6 +88,7 @@
         --ink-mute: rgba(231, 239, 227, 0.5);
         --ink-hair: rgba(231, 239, 227, 0.14);
         --bg: #0F1710;
+        --bg-verloop: linear-gradient(170deg, #0E1810 0%, #10170F 55%, #171509 100%);
         --card: rgba(255, 255, 255, 0.04);
         --hover-bg: rgba(255, 255, 255, 0.06);
         --glow-1: #3E7A40;
@@ -103,7 +105,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      background: var(--bg);
+      background: var(--bg) var(--bg-verloop) fixed;
       color: var(--ink);
       font-family: 'Inter', system-ui, sans-serif;
       font-weight: 300;

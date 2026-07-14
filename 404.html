@@ -18,7 +18,8 @@
       --accent: #EE8303;
       --ink-soft: rgba(13, 54, 14, 0.72);
       --ink-mute: rgba(13, 54, 14, 0.5);
-      --bg: #FBFAF6;
+      --bg: #E9EEDA;
+      --bg-verloop: linear-gradient(170deg, #E3EBD1 0%, #EBE9D2 55%, #F0E4C8 100%);
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -26,6 +27,7 @@
         --ink-soft: rgba(231, 239, 227, 0.75);
         --ink-mute: rgba(231, 239, 227, 0.5);
         --bg: #0F1710;
+        --bg-verloop: linear-gradient(170deg, #0E1810 0%, #10170F 55%, #171509 100%);
       }
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,7 +36,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--bg);
+      background: var(--bg) var(--bg-verloop) fixed;
       color: var(--ink);
       font-family: 'Inter', system-ui, sans-serif;
       font-weight: 300;
