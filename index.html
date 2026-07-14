@@ -162,7 +162,7 @@
       height: auto;
       margin: 0 auto 1.8rem;
       display: block;
-      animation: rise 1.2s ease-out both;
+      animation: rise 0.5s ease-out both;
       filter: drop-shadow(0 6px 24px rgba(13, 54, 14, 0.08));
     }
 
@@ -171,7 +171,7 @@
       height: 2px;
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
       margin: 0 auto 1.6rem;
-      animation: rise 1.2s ease-out 0.2s both;
+      animation: rise 0.5s ease-out 0.08s both;
     }
 
     .tagline {
@@ -181,17 +181,17 @@
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--ink-soft);
-      animation: rise 1.2s ease-out 0.35s both;
+      animation: rise 0.5s ease-out 0.12s both;
     }
 
     .lede {
       margin-top: 1.2rem;
       font-size: clamp(0.95rem, 2vw, 1.05rem);
       color: var(--ink-soft);
-      max-width: 38ch;
+      max-width: 48ch;
       margin-left: auto;
       margin-right: auto;
-      animation: rise 1.2s ease-out 0.5s both;
+      animation: rise 0.5s ease-out 0.16s both;
     }
 
     .products {
@@ -211,12 +211,12 @@
       align-items: center;
       gap: 1rem;
       transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      animation: rise 1.2s ease-out both;
+      animation: rise 0.5s ease-out both;
       text-decoration: none;
       color: inherit;
     }
-    .product:nth-child(1) { animation-delay: 0.65s; }
-    .product:nth-child(2) { animation-delay: 0.8s; }
+    .product:nth-child(1) { animation-delay: 0.2s; }
+    .product:nth-child(2) { animation-delay: 0.26s; }
 
     .product--met-info { flex-direction: column; align-items: stretch; gap: 0; }
     .product__link { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: inherit; }
@@ -466,7 +466,7 @@
 
     .contact {
       margin-top: 2.4rem;
-      animation: rise 1.2s ease-out 0.8s both;
+      animation: rise 0.5s ease-out 0.3s both;
     }
     .contact a {
       color: var(--accent);
@@ -491,7 +491,7 @@
       font-size: 0.78rem;
       color: var(--ink-mute);
       letter-spacing: 0.04em;
-      animation: rise 1.2s ease-out 1s both;
+      animation: rise 0.5s ease-out 0.35s both;
     }
     footer p { margin: 0.15rem 0; }
     footer a {
@@ -538,7 +538,7 @@
     }
 
     @keyframes rise {
-      from { opacity: 0; transform: translateY(18px); }
+      from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
@@ -622,8 +622,8 @@
         <img src="logo-512.png?v=5" alt="KemblincK" class="logo" width="512" height="512" fetchpriority="high">
       </picture>
       <div class="divider" aria-hidden="true"></div>
-      <h1 class="tagline">Digitale producten met karakter</h1>
-      <p class="lede">Software voor dagelijkse problemen.</p>
+      <h1 class="tagline">Digitale producten voor dagelijkse problemen</h1>
+      <p class="lede">KemblincK ontwerpt en bouwt apps en webapps, van eerste idee tot oplevering. Doordacht, persoonlijk en zonder ruis.</p>
 
       <div class="products" id="producten">
         <a class="product" href="https://tweehuizen.com" aria-label="Bekijk TweeHuizen, co-ouderschap app">
