@@ -79,6 +79,7 @@
       --hover-bg: rgba(0, 0, 0, 0.04);
       --glow-1: #0D360E;
       --watermark: url('logo-512.png?v=5');
+      --balk: rgba(236, 240, 224, 0.82);
     }
 
     @media (prefers-color-scheme: dark) {
@@ -94,6 +95,7 @@
         --glow-1: #3E7A40;
         --watermark: url('logo-licht-512.png?v=1');
         --watermark-opacity: 0.022;
+        --balk: rgba(15, 23, 16, 0.82);
       }
     }
 
@@ -144,7 +146,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 4rem 1.5rem 2rem;
+      padding: 3rem 1.5rem 2rem;
       position: relative;
       z-index: 1;
     }
@@ -156,9 +158,9 @@
     }
 
     .logo {
-      width: min(360px, 68vw);
+      width: min(200px, 46vw);
       height: auto;
-      margin: 0 auto 2.2rem;
+      margin: 0 auto 1.8rem;
       display: block;
       animation: rise 1.2s ease-out both;
       filter: drop-shadow(0 6px 24px rgba(13, 54, 14, 0.08));
@@ -277,25 +279,75 @@
     }
     .product:hover .product__arrow { transform: translateX(4px); }
 
-    /* Menu linksboven */
-    .menu-knop {
-      position: fixed;
-      top: 1.1rem;
-      left: 1.1rem;
+    /* Topbalk */
+    .topbalk {
+      position: sticky;
+      top: 0;
       z-index: 40;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 0.65rem clamp(1rem, 4vw, 2.2rem);
+      background: var(--balk);
+      backdrop-filter: saturate(160%) blur(10px);
+      -webkit-backdrop-filter: saturate(160%) blur(10px);
+      border-bottom: 1px solid var(--ink-hair);
+    }
+    .balk-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .balk-brand img { width: 30px; height: 30px; display: block; }
+    .balk-brand span {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+    }
+    .balk-links {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .balk-links a {
+      font-size: 0.86rem;
+      letter-spacing: 0.04em;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .balk-links a:hover,
+    .balk-links a:focus-visible { color: var(--accent); outline: none; }
+    .balk-links .balk-contact {
       border: 1px solid var(--ink-hair);
-      background: var(--card);
-      backdrop-filter: blur(6px);
+      border-radius: 999px;
+      padding: 0.42rem 1.05rem;
+      color: var(--ink);
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+    .balk-links .balk-contact:hover,
+    .balk-links .balk-contact:focus-visible { border-color: var(--accent); color: var(--accent); }
+    @media (max-width: 560px) {
+      .balk-links a:not(.balk-contact) { display: none; }
+    }
+
+    .menu-knop {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid transparent;
+      background: none;
       color: var(--ink);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-      animation: rise 1.2s ease-out 0.2s both;
+      flex-shrink: 0;
+      transition: border-color 0.3s ease, color 0.3s ease;
     }
     .menu-knop:hover,
     .menu-knop:focus-visible {
@@ -502,13 +554,26 @@
   </style>
 </head>
 <body>
-  <button class="menu-knop" id="menu-knop" aria-label="Open menu" aria-expanded="false" aria-controls="menu-paneel">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-      <line x1="4" y1="7" x2="20" y2="7"></line>
-      <line x1="4" y1="12" x2="20" y2="12"></line>
-      <line x1="4" y1="17" x2="20" y2="17"></line>
-    </svg>
-  </button>
+  <header class="topbalk">
+    <button class="menu-knop" id="menu-knop" aria-label="Open menu" aria-expanded="false" aria-controls="menu-paneel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="4" y1="7" x2="20" y2="7"></line>
+        <line x1="4" y1="12" x2="20" y2="12"></line>
+        <line x1="4" y1="17" x2="20" y2="17"></line>
+      </svg>
+    </button>
+    <a class="balk-brand" href="/" aria-label="KemblincK home">
+      <picture>
+        <source srcset="embleem-licht-96.png?v=2" media="(prefers-color-scheme: dark)">
+        <img src="embleem-96.png?v=2" alt="" width="96" height="96">
+      </picture>
+      <span>KemblincK</span>
+    </a>
+    <nav class="balk-links" aria-label="Site">
+      <a href="#producten">Producten</a>
+      <a class="balk-contact" href="mailto:info@kemblinck.nl">Contact</a>
+    </nav>
+  </header>
 
   <div class="menu-backdrop" id="menu-backdrop" hidden></div>
 
@@ -560,7 +625,7 @@
       <h1 class="tagline">Digitale producten met karakter</h1>
       <p class="lede">Software voor dagelijkse problemen.</p>
 
-      <div class="products">
+      <div class="products" id="producten">
         <a class="product" href="https://tweehuizen.com" aria-label="Bekijk TweeHuizen, co-ouderschap app">
           <img src="tweehuizen-logo.png" alt="" class="product__logo" width="64" height="64">
           <div class="product__body">
