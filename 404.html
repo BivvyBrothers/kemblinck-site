@@ -1,89 +1,86 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pagina niet gevonden | KemblincK</title>
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#0D360E" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0F1710" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#faf9f5">
   <link rel="icon" type="image/png" href="/favicon-180.png?v=6">
   <link rel="apple-touch-icon" href="/favicon-180.png?v=6">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400&display=swap">
   <style>
-    :root {
-      --ink: #0D360E;
-      --accent: #EE8303;
-      --ink-soft: rgba(13, 54, 14, 0.72);
-      --ink-mute: rgba(13, 54, 14, 0.5);
-      --bg: #E9EEDA;
-      --bg-verloop: linear-gradient(170deg, #E3EBD1 0%, #EBE9D2 55%, #F0E4C8 100%);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --ink: #E7EFE3;
-        --ink-soft: rgba(231, 239, 227, 0.75);
-        --ink-mute: rgba(231, 239, 227, 0.5);
-        --bg: #0F1710;
-        --bg-verloop: linear-gradient(170deg, #0E1810 0%, #10170F 55%, #171509 100%);
-      }
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
     body {
+      margin: 0;
       min-height: 100vh;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg) var(--bg-verloop) fixed;
-      color: var(--ink);
-      font-family: 'Inter', system-ui, sans-serif;
-      font-weight: 300;
-      line-height: 1.6;
-      text-align: center;
-      padding: 2rem 1.5rem;
+      flex-direction: column;
+      background: #faf9f5;
+      color: #173e30;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
     }
-    .logo { width: min(200px, 50vw); height: auto; margin: 0 auto 2rem; display: block; }
-    .code {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(2.6rem, 8vw, 4rem);
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      color: var(--ink);
-      line-height: 1.1;
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 5px; }
+    a:focus-visible { outline: 3px solid #986f3d; outline-offset: 5px; }
+    .wrap { max-width: 1180px; width: 100%; margin: auto; padding: 0 44px; }
+    header {
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      padding: 25px 0; border-bottom: 1px solid #dedfd6;
     }
-    .divider {
-      width: 64px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      margin: 1.2rem auto;
+    .brand { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+    .brand img { width: 39px; height: 39px; object-fit: contain; filter: sepia(.3) saturate(.65) brightness(.78); }
+    .word { font-family: Georgia, serif; font-size: 27px; font-weight: bold; letter-spacing: -.9px; }
+    .word b { color: #986f3d; font-weight: inherit; }
+    nav a { font-size: 13px; padding: 8px 15px; border: 1px solid #dedfd6; border-radius: 5px; }
+    main { flex: 1; display: flex; align-items: center; padding: 60px 0; }
+    .label { font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: bold; color: #805a2d; }
+    h1 {
+      font-family: Georgia, serif; font-size: clamp(38px, 5.3vw, 56px);
+      line-height: 1.1; font-weight: 400; letter-spacing: -1.8px; margin: 20px 0 23px;
     }
-    p { color: var(--ink-soft); max-width: 40ch; margin: 0 auto 1.8rem; }
-    a.terug {
-      display: inline-block;
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.95rem;
-      letter-spacing: 0.06em;
-      border: 1px solid var(--accent);
-      border-radius: 999px;
-      padding: 0.65rem 1.6rem;
-      transition: background 0.3s ease, color 0.3s ease;
+    h1 em { color: #986f3d; font-style: normal; }
+    p { margin: 0; max-width: 460px; }
+    .actions { display: flex; gap: 24px; flex-wrap: wrap; align-items: center; margin-top: 27px; }
+    .button {
+      display: inline-flex; align-items: center; gap: 25px;
+      background: #173e30; color: #faf9f5; font-size: 13px; font-weight: bold;
+      padding: 13px 18px; border-radius: 5px;
     }
-    a.terug:hover, a.terug:focus-visible { background: var(--accent); color: #fff; outline: none; }
+    .button span { color: #d3ac74; }
+    .link { font-size: 13px; color: #805a2d; border-bottom: 1px solid #986f3d; }
+    footer {
+      padding: 25px 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
+      font-size: 11px; color: #566259; border-top: 1px solid #dedfd6;
+    }
+    @media (max-width: 750px) { .wrap { padding: 0 25px; } main { padding: 40px 0; } }
+    @media (max-width: 510px) {
+      .wrap { padding: 0 18px; }
+      header { flex-wrap: wrap; gap: 15px; }
+      nav { width: 100%; }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <picture>
-      <source srcset="/logo-licht-512.png?v=2" media="(prefers-color-scheme: dark)">
-      <img src="/logo-512.png?v=6" alt="KemblincK" class="logo" width="512" height="512">
-    </picture>
-    <h1 class="code">404</h1>
-    <div class="divider" aria-hidden="true"></div>
-    <p>Deze pagina bestaat niet (meer). Geen zorgen, alles wat KemblincK maakt vind je op de homepagina.</p>
-    <a class="terug" href="/">Naar de homepagina</a>
-  </main>
+  <div class="wrap">
+    <header>
+      <a href="/" class="brand" aria-label="KemblincK"><img src="/assets/embleem.png" width="96" height="96" alt=""><span class="word"><b>K</b>emblinc<b>K</b></span></a>
+      <nav aria-label="Hoofdnavigatie"><a href="mailto:info@kemblinck.nl">Contact ↗</a></nav>
+    </header>
+    <main>
+      <div>
+        <div class="label">Foutcode 404</div>
+        <h1>Deze pagina<br>bestaat <em>niet.</em></h1>
+        <p>Misschien is de link verouderd of zit er een tikfout in het adres. Alles wat KemblincK maakt vind je op de homepagina.</p>
+        <div class="actions">
+          <a class="button" href="/">Naar de homepagina <span>→</span></a>
+          <a class="link" href="/#kcb-werk">Bekijk ons werk</a>
+        </div>
+      </div>
+    </main>
+    <footer><span>© 2026 KemblincK · Den Haag · KvK 42043399</span><a href="mailto:info@kemblinck.nl">info@kemblinck.nl</a></footer>
+  </div>
 </body>
 </html>
