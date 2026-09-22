@@ -110,3 +110,23 @@ section{scroll-margin-top:20px}
 
 #kc-business .kc-intro,#kc-business .kc-product-copy p,#kc-business .kc-about p{color:var(--ink)}
 
+
+/* Contactformulier (22 sep 2026) */
+#kc-business .kc-contact{align-items:flex-start}
+#kc-business .kc-contact-tekst{flex:1;min-width:0}
+#kc-business .kc-contact-alt{margin-top:14px;font-size:12px}
+#kc-business .kc-contact-alt a{text-decoration:underline;text-underline-offset:4px;color:var(--bg)}
+#kc-business .kc-form{flex:1;width:100%;max-width:460px;display:grid;gap:10px}
+#kc-business .kc-form label{display:grid;gap:4px;font-size:12px;color:var(--bg)}
+#kc-business .kc-form input,#kc-business .kc-form textarea{font:inherit;font-size:14px;line-height:1.4;padding:10px 12px;border:1px solid transparent;border-radius:5px;background:var(--bg);color:var(--ink);width:100%;margin:0}
+#kc-business .kc-form textarea{min-height:120px;resize:vertical}
+#kc-business .kc-form input:focus-visible,#kc-business .kc-form textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+#kc-business .kc-form button{justify-self:start;display:inline-flex;align-items:center;gap:14px;background:var(--bg);color:var(--ink);border:0;border-radius:5px;padding:12px 17px;font:inherit;font-size:13px;font-weight:bold;cursor:pointer}
+#kc-business .kc-form button span{color:var(--gold)}
+#kc-business .kc-form button[disabled]{opacity:.6;cursor:wait}
+#kc-business .kc-form-status{font-size:13px;color:var(--bg);min-height:1.3em;margin:0}
+#kc-business .kc-form-status.fout{color:#f6cfbc}
+#kc-business .kc-form-privacy{font-size:11px;color:var(--bg);opacity:.7;margin:0}
+#kc-business .kc-honing{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media(max-width:750px){#kc-business .kc-contact{flex-direction:column}#kc-business .kc-form{max-width:none}}
+#kc-business .kc-contact-alt a{background:none;padding:0;border-radius:0;white-space:normal;color:var(--bg);text-decoration:underline;text-underline-offset:4px}

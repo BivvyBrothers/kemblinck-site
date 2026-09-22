@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://kemblinck.nl/">
   <link rel="icon" type="image/png" href="favicon-180.png?v=6">
   <link rel="apple-touch-icon" href="favicon-180.png?v=6">
-  <link rel="stylesheet" href="styles.css?v=20260922b">
+  <link rel="stylesheet" href="styles.css?v=20260922c">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="KemblincK">
   <meta property="og:title" content="KemblincK | Van een goed idee naar een app die werkt.">
@@ -42,11 +42,36 @@
 <article class="kc-example"><div class="kc-example-top"><img class="kc-app-logo fish" src="assets/vis-logo.png" width="128" height="128" alt="Logo Viswedstrijden"><div><span class="kc-tag">Wedstrijdorganisatie · Webapp</span><h3>Viswedstrijden</h3></div></div><div class="kc-product-display"><div class="kc-device"><img src="assets/vis-screen.png" width="400" height="866" alt="Het klassement in Viswedstrijden"></div></div><div class="kc-product-copy"><p>Van de eerste loting tot de laatste vangst. Alles om wedstrijden te organiseren en iedereen te laten meeleven.</p><div class="kc-features"><span>Digitale loting</span><span>Vangstregistratie</span><span>Live klassement</span></div><a class="kc-product-link" href="https://viswedstrijdapp.nl/" target="_blank" rel="noopener">Bekijk Viswedstrijden <span>↗</span></a></div></article>
 </div></section>
 <section class="kc-about" id="kcb-over"><div><div class="kc-label">Achter KemblincK</div><h2>Praktisch bedacht.<br><em>Persoonlijk gemaakt.</em></h2></div><div><p>Een goede app begint bij begrijpen wat mensen nodig hebben. KemblincK vertaalt praktische vragen naar digitale producten die prettig werken. Van het eerste idee tot de details die dagelijks het verschil maken.</p><div class="kc-sign"><strong>Patrick Kemble</strong> <span>· KemblincK, Den Haag</span></div></div></section>
-<section class="kc-contact" id="kcb-contact"><div><h2>Digitale producten <em>met karakter</em></h2><p>Vertel waar je aan denkt. Dan kijken we naar de mogelijkheden.</p></div><a href="mailto:info@kemblinck.nl">Neem contact op ↗</a></section></main>
+<section class="kc-contact" id="kcb-contact"><div class="kc-contact-tekst"><h2>Digitale producten <em>met karakter</em></h2><p>Vertel waar je aan denkt. Dan kijken we naar de mogelijkheden.</p><p class="kc-contact-alt">Liever direct mailen? <a href="mailto:info@kemblinck.nl">info@kemblinck.nl</a></p></div><form class="kc-form" id="kc-form" novalidate><label>Naam<input type="text" name="naam" autocomplete="name" maxlength="100" required></label><label>E-mailadres<input type="email" name="email" autocomplete="email" maxlength="200" required></label><label>Bericht<textarea name="bericht" maxlength="3000" required></textarea></label><label class="kc-honing" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label><button type="submit">Verstuur bericht <span>→</span></button><p class="kc-form-status" id="kc-form-status" role="status" aria-live="polite"></p><p class="kc-form-privacy">Je gegevens gebruiken we alleen om je te antwoorden.</p></form></section></main>
 <footer><span>© 2026 KemblincK · Den Haag · KvK 42043399</span><a href="mailto:info@kemblinck.nl">info@kemblinck.nl</a></footer>
 </div>
 
 </div>
 
+<script>
+(function () {
+  var f = document.getElementById('kc-form'); if (!f) return;
+  var st = document.getElementById('kc-form-status');
+  var knop = f.querySelector('button[type="submit"]');
+  var URL_FUNCTIE = 'https://xyfvkmhkwcjqskxrcfrj.supabase.co/functions/v1/kemblinck-contact';
+  function melding(t, fout) { st.textContent = t; st.classList.toggle('fout', !!fout); }
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var d = { naam: f.naam.value.trim(), email: f.email.value.trim(), bericht: f.bericht.value.trim(), website: f.website.value };
+    if (d.naam.length < 2) { melding('Vul je naam in.', true); f.naam.focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email)) { melding('Vul een geldig e-mailadres in.', true); f.email.focus(); return; }
+    if (d.bericht.length < 10) { melding('Schrijf een bericht van minstens tien tekens.', true); f.bericht.focus(); return; }
+    knop.disabled = true; melding('Bezig met versturen…');
+    fetch(URL_FUNCTIE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok && j.ok, j: j }; }); })
+      .then(function (r) {
+        if (r.ok) { f.reset(); melding('Dank je wel, je bericht is verstuurd. Je hoort snel van ons.'); }
+        else { melding((r.j && r.j.fout) || 'Versturen lukte niet. Mail direct naar info@kemblinck.nl.', true); }
+      })
+      .catch(function () { melding('Versturen lukte niet. Mail direct naar info@kemblinck.nl.', true); })
+      .then(function () { knop.disabled = false; });
+  });
+})();
+</script>
 </body>
 </html>
