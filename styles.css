@@ -130,3 +130,6 @@ section{scroll-margin-top:20px}
 #kc-business .kc-honing{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 @media(max-width:750px){#kc-business .kc-contact{flex-direction:column}#kc-business .kc-form{max-width:none}}
 #kc-business .kc-contact-alt a{background:none;padding:0;border-radius:0;white-space:normal;color:var(--bg);text-decoration:underline;text-underline-offset:4px}
+
+/* Taalwissel in de topbalk (17 okt 2026) */
+#kc-business .kc-lang{font-weight:bold;letter-spacing:1px;color:var(--gold-text)}
