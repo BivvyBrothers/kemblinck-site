@@ -1,0 +1,2 @@
+Lettertypen in deze map: Inter, Newsreader en JetBrains Mono (variabele versies, latin-subset via fontsource 5.3.0).
+Alle drie onder de SIL Open Font License 1.1: vrij te gebruiken en zelf te hosten.
